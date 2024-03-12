@@ -11,16 +11,21 @@ import RealityKitContent
 
 struct ContentView: View {
     @State private var isLoading = false
+    @State private var result: Int?
+    
     var body: some View {
         VStack {
             Button("Load") {
                 isLoading = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    result = Int.random(in: 1...10)
                     isLoading = false
                 }
             }
             if isLoading {
                 ProgressView()
+            } else if let result {
+                Text(String(result))
             }
         }
         .padding()
