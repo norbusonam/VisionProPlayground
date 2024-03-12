@@ -24,6 +24,7 @@ struct ContentView: View {
             }
         }
         .padding()
+        .animation(.default, value: isLoading)
     }
 }
 
