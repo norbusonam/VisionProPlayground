@@ -10,12 +10,18 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
+    @State private var isLoading = false
     var body: some View {
         VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
+            Button("Load") {
+                isLoading = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    isLoading = false
+                }
+            }
+            if isLoading {
+                ProgressView()
+            }
         }
         .padding()
     }
