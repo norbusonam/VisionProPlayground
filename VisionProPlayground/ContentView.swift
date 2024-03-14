@@ -18,6 +18,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomOrnament) {
