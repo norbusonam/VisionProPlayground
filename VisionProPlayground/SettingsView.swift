@@ -9,11 +9,15 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var isSheetOpen = false
+    
     var body: some View {
-        VStack {
-            Button("Open Sheet") {
-                isSheetOpen = true
+        NavigationStack {
+            VStack {
+                Button("Open Sheet") {
+                    isSheetOpen = true
+                }
             }
+            .navigationTitle("Settings")
         }
         .sheet(isPresented: $isSheetOpen, content: {
             Button("Close Sheet") {
