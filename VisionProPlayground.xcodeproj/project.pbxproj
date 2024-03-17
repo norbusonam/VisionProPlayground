@@ -40,6 +40,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		072D09BB2BA78436001BC373 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07D715EB2B9CE9190042DC1D /* ContentView.swift */,
+				072D09B72BA2B916001BC373 /* HomeView.swift */,
+				072D09B92BA2B9B6001BC373 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		07D715D92B9CE9190042DC1D = {
 			isa = PBXGroup;
 			children = (
@@ -61,9 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				07D715E92B9CE9190042DC1D /* VisionProPlaygroundApp.swift */,
-				07D715EB2B9CE9190042DC1D /* ContentView.swift */,
-				072D09B72BA2B916001BC373 /* HomeView.swift */,
-				072D09B92BA2B9B6001BC373 /* SettingsView.swift */,
+				072D09BB2BA78436001BC373 /* Views */,
 				07D715ED2B9CE91B0042DC1D /* Assets.xcassets */,
 				07D715F22B9CE91B0042DC1D /* Info.plist */,
 				07D715EF2B9CE91B0042DC1D /* Preview Content */,
