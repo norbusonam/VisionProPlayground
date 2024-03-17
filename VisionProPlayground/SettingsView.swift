@@ -20,8 +20,18 @@ struct SettingsView: View {
             .navigationTitle("Settings")
         }
         .sheet(isPresented: $isSheetOpen, content: {
-            Button("Close Sheet") {
-                isSheetOpen = false
+            NavigationView {
+                VStack {
+                    Text("Sheet")
+                }
+                .navigationTitle("Sheet")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("", systemImage: "xmark") {
+                            isSheetOpen = false
+                        }
+                    }
+                }
             }
         })
     }
