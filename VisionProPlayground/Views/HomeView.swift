@@ -6,31 +6,35 @@
 //
 
 import SwiftUI
+import RealityKit
+import RealityKitContent
 
 struct HomeView: View {
-    @State private var name = ""
-    @State private var isLoading = false
-    @State private var result: Int?
+    @State private var enlarge = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                Button("Load") {
-                    isLoading = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        result = Int.random(in: 1...10)
-                        isLoading = false
+                Toggle("Enlarge RealityView Content", isOn: $enlarge)
+                    .toggleStyle(.button)
+            }
+            VStack {
+                RealityView { content in
+                    if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
+                        content.add(scene)
+                    }
+                } update: { content in
+                    if let scene = content.entities.first {
+                        let uniformScale: Float = enlarge ? 1.4 : 1.0
+                        scene.transform.scale = [uniformScale, uniformScale, uniformScale]
                     }
                 }
-                if isLoading {
-                    ProgressView()
-                } else if let result {
-                    Text(String(result))
-                }
+                .gesture(TapGesture().targetedToAnyEntity().onEnded { _ in
+                    enlarge.toggle()
+                })
             }
             .navigationTitle("Home")
         }
-        .animation(.default, value: isLoading)
     }
 }
 
