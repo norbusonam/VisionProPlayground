@@ -12,6 +12,10 @@ struct VisionProPlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .progressViewStyle(.circular)
+        }
+        WindowGroup(id: "another-window") {
+            Text("Another Window")
         }
     }
 }
