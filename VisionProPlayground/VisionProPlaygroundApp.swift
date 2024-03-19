@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct VisionProPlaygroundApp: App {
+    @Environment(\.dismissWindow) private var dismissWindow
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -16,6 +18,9 @@ struct VisionProPlaygroundApp: App {
         }
         WindowGroup(id: "another-window") {
             Text("Another Window")
+            Button("Close") {
+                dismissWindow(id: "another-window")
+            }
         }
     }
 }
