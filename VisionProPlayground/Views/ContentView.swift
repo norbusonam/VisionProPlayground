@@ -30,8 +30,10 @@ struct ContentView: View {
                     .hoverEffect()
                 Button("Cat", systemImage: "cat", action: {})
                     .buttonBorderShape(.circle)
+                    .help("Cat")
                 Button("Dog", systemImage: "dog", action: {})
                     .buttonBorderShape(.circle)
+                    .help("Dog")
             }
         }
     }
