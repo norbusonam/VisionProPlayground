@@ -42,6 +42,11 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Home")
+            .ornament(attachmentAnchor: .scene(.trailing), contentAlignment: .leading, ornament: {
+                Text("Custom Ornament")
+                    .padding()
+                    .glassBackgroundEffect()
+            })
         }
     }
 }
