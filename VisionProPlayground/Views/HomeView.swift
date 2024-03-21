@@ -40,6 +40,12 @@ struct HomeView: View {
                         openWindow(id: "another-window")
                     }
                 }
+                VStack {
+                    NavigationLink("Add to Stack") {
+                        Text("New view in stack")
+                            .navigationTitle("New Stack View")
+                    }
+                }
             }
             .navigationTitle("Home")
             .ornament(attachmentAnchor: .scene(.trailing), contentAlignment: .leading, ornament: {
