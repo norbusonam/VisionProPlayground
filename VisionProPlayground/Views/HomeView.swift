@@ -40,8 +40,12 @@ struct HomeView: View {
                 }
                 VStack {
                     NavigationLink("Add to Stack") {
-                        Text("New view in stack")
-                            .navigationTitle("New Stack View")
+                        Text("Added to stack")
+                        NavigationLink("Add another to stack") {
+                            Text("Added another to stack")
+                                .navigationTitle("Another Stack View")
+                        }
+                        .navigationTitle("Stack View")
                     }
                 }
             }
