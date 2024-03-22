@@ -19,8 +19,6 @@ struct HomeView: View {
                 VStack {
                     Toggle("Enlarge RealityView Content", isOn: $enlarge)
                         .toggleStyle(.button)
-                }
-                VStack {
                     RealityView { content in
                         if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
                             content.add(scene)
