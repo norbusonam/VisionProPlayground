@@ -38,8 +38,6 @@ struct HomeView: View {
                     Button("Open Another Window") {
                         openWindow(id: "another-window")
                     }
-                }
-                VStack {
                     NavigationLink("Add to Stack") {
                         Text("Added to stack")
                         NavigationLink("Add another to stack") {
@@ -48,8 +46,6 @@ struct HomeView: View {
                         }
                         .navigationTitle("Stack View")
                     }
-                }
-                VStack {
                     Button("Open Sheet") {
                         isSheetOpen = true
                     }
