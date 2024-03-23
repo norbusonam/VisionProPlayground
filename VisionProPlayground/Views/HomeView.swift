@@ -11,6 +11,7 @@ import RealityKitContent
 
 struct HomeView: View {
     @Environment(\.openWindow) private var openWindow
+    @State private var isSheetOpen = false
     @State private var enlarge = false
     
     var body: some View {
@@ -48,12 +49,32 @@ struct HomeView: View {
                         .navigationTitle("Stack View")
                     }
                 }
+                VStack {
+                    Button("Open Sheet") {
+                        isSheetOpen = true
+                    }
+                }
             }
             .navigationTitle("Home")
             .ornament(attachmentAnchor: .scene(.trailing), contentAlignment: .leading, ornament: {
                 Text("Custom Ornament")
                     .padding()
                     .glassBackgroundEffect()
+            })
+            .sheet(isPresented: $isSheetOpen, content: {
+                NavigationView {
+                    VStack {
+                        Text("Sheet")
+                    }
+                    .navigationTitle("Sheet")
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("", systemImage: "xmark") {
+                                isSheetOpen = false
+                            }
+                        }
+                    }
+                }
             })
         }
     }
